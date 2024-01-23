@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Collection;
 class LogRepository
 {
 
-    public function add($log):void
+    public function add(array $log, string $name):void
     {
         Log::create([
-            'content'=> json_encode($log, JSON_FORCE_OBJECT)
+            'content'=> json_encode($log, JSON_FORCE_OBJECT),
+            'name' => $name
         ]);
     }
 
-    public function getLogs(): Collection
+    public function getLogs(): ?Collection
     {
-        return Log::all();
+        return Log::all()??null;
     }
 
 }

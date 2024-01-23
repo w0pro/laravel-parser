@@ -24,30 +24,17 @@ watch(()=>props.installKey, (val, oldValue) => {
     }
 })
 
-// watch(stateAccordion, (newVal) => {
-//     if (newVal) {
-//         descriptionWrapperHeight.value = description.value.clientHeight + 30
-//         // emit('updateAcc', props.accKey)
-//     }else {
-//         descriptionWrapperHeight.value = 0
-//     }
-//
-// })
-
 const clickAcc = (ev) => {
-    // let oldAcc = ev.currentTarget.parentElement.querySelector('.accordion__list__item.active')?.clientHeight
-    // let wrapHeight = oldAcc?oldAcc * -1: 0
+
     stateAccordion.value = !stateAccordion.value
 
-    // ev.currentTarget.childNodes.forEach(e => wrapHeight += e.scrollHeight)
-    // ev.currentTarget.scrollTop = ev.pageY - wrapHeight
 
 }
 
 </script>
 
 <template>
-    <div class="faq__list__item_wrapper"  :class="{active: descriptionWrapperHeight}">
+    <div class="accordion_wrapper"  :class="{active: descriptionWrapperHeight}">
         <div  class="accordion__title_wrapper" @click="clickAcc($event)">
             <p class="accordion__item__title" >
                 <slot name="title" />
@@ -65,9 +52,13 @@ const clickAcc = (ev) => {
 
 </template>
 
-
-
 <style scoped>
+
+.accordion_wrapper {
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid black;
+}
 
 .accordion__title_wrapper {
     display: flex;
@@ -75,32 +66,31 @@ const clickAcc = (ev) => {
     align-items: center;
     column-gap: 10px;
     position: relative;
-    padding: 30px 40px;
+    padding: 20px;
 }
 
 .accordion__item__title {
     font-weight: 700;
 }
 
-
 .accordion__item__desc_wrapper {
     transition: all 0.3s;
     overflow: hidden;
-    padding: 0 40px;
+    padding: 0 20px;
     height: 0;
 }
 
 .accordion__item__desc_wrapper.active{
-    margin-top: 24px;
-    padding: 0 40px 30px;
+    padding: 0 20px 20px;
     height: auto;
-
-
-
 }
 
 .accordion__title_wrapper p{
     flex: 1;
+}
+
+.accordion__item__desc {
+    font-size: 14px;
 }
 
 .faq__list__item_wrapper.active svg{

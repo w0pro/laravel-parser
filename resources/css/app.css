@@ -20,11 +20,16 @@ body {
     margin: 0 auto;
 }
 
+a {
+    text-decoration: none;
+}
+
 .header {
-    padding: 20px 0;
+    padding: 40px 0;
     width: 100%;
     /*position: fixed;*/
-    background-color: #069c60;
+    background-color: #55a384;
+    backdrop-filter: blur(100px);
 }
 
 .header_wrapper {
@@ -69,6 +74,20 @@ button {
 
 .opacity-25 {
     opacity: 0.25;
+}
+
+table {
+    width: 500px;
+    border-collapse: collapse;
+    border: 2px solid;
+    width: 100%;
+
+}
+
+td {
+    padding: 10px;
+    border: 1px solid ;
+    text-align: left;
 }
 
 

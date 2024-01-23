@@ -12,7 +12,7 @@ const props = defineProps({
     <Head :title="title" />
     <header class="header">
         <div class="container header_wrapper">
-            <NavLink v-for="rout in routs" :href="route(rout.pathName)" :key="rout.path">
+            <NavLink v-for="rout in routs" :href="route(rout.pathName)" :active="route().current(rout.pathName)" :key="rout.path">
                 {{rout.title}}
             </NavLink>
 

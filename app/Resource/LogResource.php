@@ -11,21 +11,21 @@ class LogResource
     {
     }
 
-    public function addLog($log):void
+    public function addLog(array $log, string $name):void
     {
-        $this->logRepository->add($log);
+        $this->logRepository->add($log, $name);
     }
 
-    public function getLogs(): Collection
+    public function getLogs(): ?Collection
     {
         return $this->logRepository->getLogs();
     }
 
-    public function logParser($path):void
+    public function logParser(string $path, string $name):void
     {
 
         $log = file('storage/'.$path);
-        $this->addLog($log);
+        $this->addLog($log, $name);
 
     }
 

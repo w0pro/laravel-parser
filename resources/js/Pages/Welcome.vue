@@ -42,11 +42,11 @@ const formSubmit = () => {
                                id="files"
                                name="files"
                                @input="form.files = $event.target.files" multiple>
-                        <InputError :message="form.errors.files"/>
+                        <InputError :message="form.errors.files" />
                     </div>
                 </template>
                 <template #actions>
-                   <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                   <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing || !form.files">
                         Загрузить
                    </PrimaryButton>
                     <DangerButton v-if="form.files" @click.prevent="formReset">

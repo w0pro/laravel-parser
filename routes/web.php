@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\SqlController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -31,5 +32,5 @@ Route::prefix('/logs')->group(function () {
 });
 
 Route::prefix('/dumps')->group(function () {
-    Route::get('/', [AttachmentController::class, 'get'])->name('get-dumps');
+    Route::get('/', [SqlController::class, 'get'])->name('get-dumps');
 });
